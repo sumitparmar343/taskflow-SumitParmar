@@ -1,0 +1,92 @@
+# TaskFlow — Task Management System
+
+## 1. Overview
+
+TaskFlow is a minimal task management application that allows users to:
+
+- Register and log in
+- Create and manage projects
+- Add, edit, and delete tasks
+- Assign tasks to users
+- Filter tasks by status and assignee
+- View tasks in a Kanban-style board
+
+### Tech Stack
+
+**Frontend**
+- React (TypeScript)
+- Vite
+- React Router
+- Axios
+
+**Backend (Mock API)**
+- json-server
+
+**Infrastructure**
+- Docker + Docker Compose
+
+---
+
+## 2. Architecture Decisions
+
+### Frontend
+- Used **React with TypeScript** for type safety and maintainability
+- Component-based architecture:
+  - Pages: Login, Register, Projects, ProjectDetail
+  - Components: Navbar, ProtectedRoute, TaskModal
+- Centralized API layer using Axios (`/api/client.ts`)
+- Auth handled via Context API (`AuthContext`)
+- Routing handled via React Router
+
+### Backend
+- Used **json-server** for rapid prototyping and to simulate REST APIs
+- Data stored in `db.json`
+- Supports filtering (`/tasks?project_id=1` etc.)
+
+### State Management
+- Used **React local state + Context API**
+- Avoided Redux to keep scope minimal
+
+### Styling
+- Used **custom CSS**
+- Focused on:
+  - Clean layout
+  - Responsive design
+  - Simple UX
+
+---
+
+### Tradeoffs
+
+| Decision | Tradeoff |
+|--------|---------|
+| json-server instead of real backend | No real auth/JWT |
+| No database (PostgreSQL skipped) | Simpler setup |
+| Local state instead of global state library | Less scalable |
+
+---
+
+### Intentionally Left Out
+
+- Real authentication (JWT)
+- Role-based access control
+- Pagination
+- Drag & drop (Kanban enhancement)
+- Backend in Go (used mock API instead)
+
+---
+
+## 3. Running Locally
+
+### Prerequisites
+
+- Docker installed
+
+---
+
+### Steps
+
+```bash
+git clone https://github.com/sumitparmar343/taskflow-SumitParmar.git
+cd taskflow-SumitParmar
+docker compose up --build
