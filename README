@@ -68,9 +68,10 @@ TaskFlow is a minimal task management application that allows users to:
 
 ### Intentionally Left Out
 
-- Real authentication (JWT)
+- Real authentication (JWT) -  frontend task so Currently, authentication is mocked using json-server for simplicity.
+I store a dummy token and user data in localStorage and protect routes on frontend.
+In production, I would replace this with JWT-based authentication with hashed passwords and backend validation.
 - Role-based access control
-- Pagination
 - Drag & drop (Kanban enhancement)
 - Backend in Go (used mock API instead)
 
